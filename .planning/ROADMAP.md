@@ -25,7 +25,10 @@
   2. Two concurrent start requests for the same `(packageName, gitHash)` pair result in exactly one workflow execution.
   3. A run against a source repository with insufficient credentials fails at preflight, not mid-execution.
   4. Completed runs are searchable by package name, git hash, and final status via Temporal Search Attributes.
-**Plans**: TBD
+**Plans**: 1
+
+Plans:
+- [ ] 01-01-PLAN.md — HTTP start endpoint, deterministic workflow ID, preflight auth, and searchable run metadata
 
 ### Phase 2: Repository Mining
 **Goal**: Pipeline extracts authoritative Ubuntu-relevant signals from the exact source revision and emits structured evidence records.
