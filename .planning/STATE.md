@@ -18,8 +18,8 @@
 | Field | Value |
 |-------|-------|
 | Current phase | Phase 1: Foundation |
-| Current plan | None yet — awaiting `/gsd-plan-phase 1` |
-| Phase status | Not started |
+| Current plan | Phase 1 context gathered — ready for `/gsd-plan-phase 1` |
+| Phase status | Context gathered |
 | Overall progress | ░░░░░░░░░░ 0% (0/5 phases complete) |
 
 ---
@@ -62,7 +62,7 @@
 
 ### Active Todos
 
-- [ ] Run `/gsd-plan-phase 1` to plan Phase 1: Foundation
+- [ ] Run `/gsd-plan-phase 1` to plan Phase 1: Foundation using the captured context
 
 ### Blockers
 
@@ -73,6 +73,7 @@ None.
 - Research SUMMARY.md confirms 5-phase architecture aligned with requirements groupings.
 - Top risks per research: hallucinated docs, stale source mismatch, unsafe command extraction, brittle parsers.
 - All 20 v1 requirements mapped; v2 deferred (PROV-01, PROV-02, QUAL-01, QUAL-02, DIST-01, DIST-02).
+- Phase 1 discussion context saved at `.planning/phases/01-foundation/01-CONTEXT.md`.
 
 ---
 
