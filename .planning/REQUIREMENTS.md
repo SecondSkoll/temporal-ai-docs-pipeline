@@ -72,26 +72,26 @@
 | FLOW-03 | Phase TBD | Pending |
 | FLOW-04 | Phase TBD | Pending |
 | EXTR-01 | Phase TBD | Pending |
-| EXTR-02 | Phase TBD | Pending |
-| EXTR-03 | Phase TBD | Pending |
-| EXTR-04 | Phase TBD | Pending |
-| GEN-01 | Phase TBD | Pending |
-| GEN-02 | Phase TBD | Pending |
-| GEN-03 | Phase TBD | Pending |
-| GEN-04 | Phase TBD | Pending |
-| PUB-01 | Phase TBD | Pending |
-| PUB-02 | Phase TBD | Pending |
-| PUB-03 | Phase TBD | Pending |
-| PUB-04 | Phase TBD | Pending |
-| OPS-01 | Phase TBD | Pending |
-| OPS-02 | Phase TBD | Pending |
-| OPS-03 | Phase TBD | Pending |
-| OPS-04 | Phase TBD | Pending |
+| FLOW-01 | Phase 1 | Pending |
+| FLOW-02 | Phase 1 | Pending |
+| FLOW-03 | Phase 1 | Pending |
+| FLOW-04 | Phase 1 | Pending |
+| EXTR-01 | Phase 2 | Pending |
+| EXTR-02 | Phase 2 | Pending |
+| EXTR-03 | Phase 2 | Pending |
+| EXTR-04 | Phase 2 | Pending |
+| GEN-01 | Phase 3 | Pending |
+| GEN-02 | Phase 3 | Pending |
+| GEN-03 | Phase 3 | Pending |
+| GEN-04 | Phase 3 | Pending |
+| PUB-01 | Phase 4 | Pending |
+| PUB-02 | Phase 4 | Pending |
+| PUB-03 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 20 total
-- Mapped to phases: 0
-- Unmapped: 20 ⚠
+- Mapped to phases: 20 ✓
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-05-15*
