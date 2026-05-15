@@ -67,11 +67,6 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FLOW-01 | Phase TBD | Pending |
-| FLOW-02 | Phase TBD | Pending |
-| FLOW-03 | Phase TBD | Pending |
-| FLOW-04 | Phase TBD | Pending |
-| EXTR-01 | Phase TBD | Pending |
 | FLOW-01 | Phase 1 | Pending |
 | FLOW-02 | Phase 1 | Pending |
 | FLOW-03 | Phase 1 | Pending |
@@ -87,6 +82,11 @@
 | PUB-01 | Phase 4 | Pending |
 | PUB-02 | Phase 4 | Pending |
 | PUB-03 | Phase 4 | Pending |
+| PUB-04 | Phase 4 | Pending |
+| OPS-01 | Phase 5 | Pending |
+| OPS-02 | Phase 5 | Pending |
+| OPS-03 | Phase 5 | Pending |
+| OPS-04 | Phase 5 | Pending |
 
 **Coverage:**
 - v1 requirements: 20 total
@@ -95,4 +95,4 @@
 
 ---
 *Requirements defined: 2026-05-15*
-*Last updated: 2026-05-15 after initial definition*
+*Last updated: 2026-05-15 after roadmap mapping*
