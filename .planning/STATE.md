@@ -1,7 +1,8 @@
 # State: Temporal AI Docs Pipeline
 
-**Last updated:** 2026-05-15
+**Last updated:** 2026-05-15T22:32:00Z
 **Milestone:** v1
+**Phase 1 Status:** ✓ COMPLETE (walked skeleton delivered, 33 tests passing, 3 commits)
 
 ---
 
@@ -9,7 +10,7 @@
 
 **Core value:** Generate reliable Ubuntu-specific package documentation from source metadata with minimal manual effort.
 
-**Current focus:** Phase 1 — Foundation (input contract, workflow skeleton, idempotency, preflight auth)
+**Current focus:** Phase 1 COMPLETE — Foundation (control-plane contracts, HTTP start endpoint, Temporal skeleton, idempotency, preflight auth, search attributes, run ledger)
 
 ---
 
@@ -18,18 +19,19 @@
 | Field | Value |
 |-------|-------|
 | Current phase | Phase 1: Foundation |
-| Current plan | Phase 1 context gathered — ready for `/gsd-plan-phase 1` |
-| Phase status | Context gathered |
-| Overall progress | ░░░░░░░░░░ 0% (0/5 phases complete) |
+| Current plan | 01-01-PLAN.md (executed) |
+| Phase status | ✓ COMPLETE — 3 tasks (contracts, HTTP+workflow, auth+search), 33 tests, 3 commits |
+| Overall progress | ████░░░░░░ 20% (1/5 phases complete) |
 
 ---
 
 ## Phase Pointer
 
 ```
-→ Phase 1: Foundation
-  FLOW-01, FLOW-02, FLOW-03, FLOW-04
-  Next action: /gsd-plan-phase 1
+✓ Phase 1: Foundation (COMPLETE)
+  FLOW-01, FLOW-02, FLOW-03, FLOW-04 delivered
+  Commits: d3b85fc (Task 1 RED), 068c56b (Task 2), 90ad7a9 (Task 3), b6c246f (SUMMARY)
+  Next action: /gsd-discuss-phase 2 or /gsd-plan-phase 2
 ```
 
 ---
@@ -39,10 +41,12 @@
 | Metric | Value |
 |--------|-------|
 | Phases total | 5 |
-| Phases complete | 0 |
+| Phases complete | 1 |
 | Requirements total (v1) | 20 |
 | Requirements mapped | 20 |
-| Requirements validated | 0 |
+| Requirements delivered (Phase 1) | 4 (FLOW-01–04) |
+| Tests passing | 33/33 |
+| Code commits | 4 |
 
 ---
 
@@ -62,24 +66,57 @@
 
 ### Active Todos
 
-- [ ] Run `/gsd-plan-phase 1` to plan Phase 1: Foundation using the captured context
+- [x] Phase 1: Foundation (walking skeleton) — COMPLETE
+  - [x] Task 1: Define control-plane contracts and ledger schema
+  - [x] Task 2: Implement HTTP start endpoint and Temporal workflow
+  - [x] Task 3: Add source-access preflight and search metadata
+  - [x] Tests: 33 passing ✓
+- [ ] Phase 2: Repository I/O (extraction and mining)
+- [ ] Phase 3: Generation (content synthesis)
+- [ ] Phase 4: Publishing (patching and provenance)
+- [ ] Phase 5: Operations (monitoring, alerting, feedback loops)
 
 ### Blockers
 
-None.
+None. Phase 1 complete; ready to discuss/plan Phase 2.
 
 ### Notes
 
-- Research SUMMARY.md confirms 5-phase architecture aligned with requirements groupings.
-- Top risks per research: hallucinated docs, stale source mismatch, unsafe command extraction, brittle parsers.
-- All 20 v1 requirements mapped; v2 deferred (PROV-01, PROV-02, QUAL-01, QUAL-02, DIST-01, DIST-02).
-- Phase 1 discussion context saved at `.planning/phases/01-foundation/01-CONTEXT.md`.
+**Phase 1 Delivered:**
+- HTTP start endpoint: `POST /v1/docs/runs` returns 202 Accepted with runId+workflowId
+- Run idempotency: Duplicate (packageName, gitHash) rejected by ledger unique constraint
+- Temporal workflow skeleton: Accepts start request, runs source preflight, emits search attributes
+- Run ledger: PostgreSQL schema with status, error tracking, search-attribute indexes
+- Source-access preflight: `git ls-remote` activity probe before expensive work begins
+- Search attributes: 8 typed fields (package, hash, status, workflow/run IDs, repo, error, publish state) — queryable
+- Tests: All acceptance criteria from plan verified (33 tests, 0 failures)
+
+**Architecture Snapshot:**
+```
+HTTP 202 Accepted → Temporal workflow start (docs/{pkg}/{hash})
+  → CheckSourceAccessActivity (preflight)
+  → MarkRunStatusActivity (ledger update)
+  → [Phase 2: mining] [Phase 3: generation] [Phase 4: publish]
+  → SearchAttributes emitted at each state transition
+```
+
+**Next Phase Context:**
+- Phase 2 will add repository mining tasks and extend the workflow to call extraction activities
+- The walking skeleton (Phase 1) is stable and backward-compatible for Phase 2+ additions
+- All locks from Phase 1 CONTEXT.md and SKELETON.md are enforced in the implementation
 
 ---
 
 ## Session Continuity
 
-**To resume:** Read `.planning/ROADMAP.md` and `.planning/STATE.md`, then run `/gsd-plan-phase 1`.
+**To resume Phase 2:** Read `.planning/phases/02-extraction/` then run `/gsd-discuss-phase 2` or `/gsd-plan-phase 2`.
+
+**To review Phase 1:** See `.planning/phases/01-foundation/01-01-SUMMARY.md` and git commits:
+- d3b85fc (Task 1 contracts+schema)
+- 068c56b (Task 2 HTTP+workflow+ledger)
+- 90ad7a9 (Task 3 auth+main)
+- b6c246f (SUMMARY.md)
 
 ---
-*State initialized: 2026-05-15*
+*State updated: 2026-05-15T22:32:00Z — Phase 1 execution complete*
+
